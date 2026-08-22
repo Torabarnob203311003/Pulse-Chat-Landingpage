@@ -97,3 +97,4 @@ npm run build
 - **Styling:** Tailwind CSS + Custom Glassmorphism & Cyber Gradients
 - **Icons:** Lucide React
 - **Animations:** CSS Keyframes + Framer Motion
+# Pulse-Chat-Landingpage
