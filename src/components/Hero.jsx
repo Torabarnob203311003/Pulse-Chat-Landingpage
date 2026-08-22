@@ -15,7 +15,10 @@ import {
   Activity,
   Send,
   MoreVertical,
-  Bell
+  Bell,
+  Heart,
+  Flame,
+  Radio
 } from 'lucide-react';
 
 export default function Hero() {
@@ -73,34 +76,91 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[92vh] pt-28 sm:pt-36 pb-16 lg:pb-24 overflow-hidden flex flex-col justify-center bg-grid-pattern">
+    <section className="relative min-h-[95vh] pt-32 sm:pt-40 pb-16 lg:pb-28 overflow-hidden flex flex-col justify-center bg-grid-pattern">
       
       {/* Background Animated Gradient Mesh & Glowing Ambient Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-gradient-to-tr from-purple-700/25 via-fuchsia-600/15 to-indigo-600/20 rounded-full blur-[100px] sm:blur-[150px] animate-pulse-slow"></div>
-        <div className="absolute top-12 -left-20 w-[280px] sm:w-[450px] h-[280px] sm:h-[450px] bg-purple-600/15 rounded-full blur-[90px] sm:blur-[120px] animate-float-slow"></div>
-        <div className="absolute bottom-10 -right-20 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-indigo-600/15 rounded-full blur-[100px] sm:blur-[130px] animate-float-delayed"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[750px] h-[350px] sm:h-[750px] bg-gradient-to-tr from-purple-700/25 via-fuchsia-600/15 to-indigo-600/20 rounded-full blur-[100px] sm:blur-[160px] animate-pulse-slow"></div>
+        <div className="absolute top-12 -left-20 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-purple-600/15 rounded-full blur-[90px] sm:blur-[130px] animate-float-slow"></div>
+        <div className="absolute bottom-10 -right-20 w-[300px] sm:w-[550px] h-[300px] sm:h-[550px] bg-indigo-600/15 rounded-full blur-[100px] sm:blur-[140px] animate-float-delayed"></div>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[300px] sm:h-[450px] bg-gradient-to-b from-purple-500/10 via-purple-900/5 to-transparent blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-[94rem] mx-auto px-4 sm:px-8 lg:px-12 z-10 w-full">
+      {/* =========================================================================
+          CHAT APP FLOATING BACKGROUND ELEMENTS & ANIMATED BUBBLES
+         ========================================================================= */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 hidden md:block">
+        
+        {/* Floating Bubble 1: Top Left */}
+        <div className="absolute top-24 left-[4%] lg:left-[8%] animate-float-chat-1">
+          <div className="px-4 py-2.5 rounded-2xl rounded-bl-sm bg-[#180f33]/80 border border-purple-500/30 backdrop-blur-md shadow-2xl flex items-center gap-2.5 text-xs text-purple-200">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-[10px] font-bold text-white">
+              AL
+            </div>
+            <div>
+              <span className="font-heading font-bold text-white block">Alex:</span>
+              <span className="text-purple-300/90 text-[11px]">"Socket connection live! 🚀"</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Bubble 2: Top Right */}
+        <div className="absolute top-28 right-[5%] lg:right-[9%] animate-float-chat-2">
+          <div className="px-4 py-2.5 rounded-2xl rounded-br-sm bg-gradient-to-r from-purple-700/80 to-indigo-600/80 border border-purple-400/40 backdrop-blur-md shadow-neon-purple flex items-center gap-2 text-xs text-white">
+            <span className="text-xs">"Delivered instantly"</span>
+            <CheckCheck className="w-4 h-4 text-cyan-300 stroke-[2.5]" />
+          </div>
+        </div>
+
+        {/* Floating Bubble 3: Mid-Left */}
+        <div className="absolute top-[52%] left-[2%] lg:left-[5%] animate-float-chat-3">
+          <div className="px-4 py-2 rounded-2xl bg-[#140b2e]/85 border border-purple-500/25 backdrop-blur-md shadow-xl flex items-center gap-2 text-xs text-slate-200">
+            <span className="text-base animate-float-emoji-1">🔥</span>
+            <span className="font-mono text-[11px] text-purple-300">Sarah reacted to your message</span>
+          </div>
+        </div>
+
+        {/* Floating Bubble 4: Mid-Right */}
+        <div className="absolute top-[55%] right-[2%] lg:right-[6%] animate-float-chat-4">
+          <div className="px-4 py-2.5 rounded-2xl bg-[#130b2c]/85 border border-purple-500/25 backdrop-blur-md shadow-xl flex items-center gap-2 text-xs text-slate-200">
+            <Radio className="w-4 h-4 text-emerald-400 animate-pulse" />
+            <span className="font-mono text-[11px] text-emerald-300">0ms Sync • 1-Click Phone Auth</span>
+          </div>
+        </div>
+
+        {/* Floating Emojis in Space */}
+        <div className="absolute top-[38%] left-[14%] animate-float-emoji-1 text-2xl opacity-70">
+          🚀
+        </div>
+        <div className="absolute top-[42%] right-[15%] animate-float-emoji-2 text-2xl opacity-70">
+          ❤️
+        </div>
+        <div className="absolute bottom-[18%] left-[10%] animate-float-emoji-2 text-2xl opacity-60">
+          💬
+        </div>
+        <div className="absolute bottom-[20%] right-[12%] animate-float-emoji-1 text-2xl opacity-60">
+          🎉
+        </div>
+      </div>
+
+      <div className="relative max-w-[96rem] mx-auto px-4 sm:px-8 lg:px-12 z-10 w-full">
         
         {/* Top Hero Pitch Container with Trendy Typography */}
         <div className="text-center max-w-4xl mx-auto">
           
           {/* Eyebrow Pill Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-300 shadow-neon-purple mb-6 sm:mb-8 backdrop-blur-xl animate-fade-in hover:border-purple-400/70 hover:scale-105 transition-all cursor-default">
-            <span className="flex h-2 w-2 relative">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-purple-950/80 border border-purple-500/35 text-purple-300 shadow-neon-purple mb-6 sm:mb-8 backdrop-blur-xl animate-fade-in hover:border-purple-400/80 hover:scale-105 transition-all cursor-default">
+            <span className="flex h-2.5 w-2.5 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-400"></span>
             </span>
-            <span className="text-[11px] sm:text-xs md:text-sm font-mono font-semibold tracking-wide flex items-center gap-1.5">
+            <span className="text-xs sm:text-sm font-mono font-bold tracking-wide flex items-center gap-2">
               ⚡ Instant WebSocket Delivery <span className="text-purple-400/50">•</span> Read Receipts <span className="text-purple-400/50">•</span> Reactions
             </span>
           </div>
 
           {/* Main Hero Headline in Syne / Space Grotesk display typography */}
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.06] mb-6">
             Real Conversations. <br className="hidden xs:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-300">
               Instantly Connected.
@@ -118,10 +178,10 @@ export default function Hero() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto relative group overflow-hidden rounded-2xl p-[1.5px] font-heading font-bold text-sm sm:text-base transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-neon-lg"
+              className="w-full sm:w-auto relative group overflow-hidden rounded-2xl p-[1.5px] font-heading font-extrabold text-base sm:text-lg transition-all duration-300 hover:scale-[1.04] active:scale-[0.98] shadow-neon-lg"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-fuchsia-500 to-indigo-600 rounded-2xl animate-gradient-x"></div>
-              <div className="relative px-8 sm:px-10 py-4 sm:py-4.5 rounded-[15px] bg-[#0b0618] group-hover:bg-[#0b0618]/75 transition-colors flex items-center justify-center gap-3 text-white">
+              <div className="relative px-8 sm:px-11 py-4 sm:py-4.5 rounded-[15px] bg-[#0b0618] group-hover:bg-[#0b0618]/75 transition-colors flex items-center justify-center gap-3 text-white">
                 <Zap className="w-5 h-5 text-purple-400 group-hover:text-yellow-300 transition-colors animate-pulse" />
                 <span>Start Chatting</span>
                 <ArrowRight className="w-5 h-5 text-purple-300 group-hover:translate-x-1 transition-transform" />
@@ -130,7 +190,7 @@ export default function Hero() {
 
             <a
               href="#about"
-              className="w-full sm:w-auto px-7 sm:px-8 py-4 sm:py-4.5 rounded-2xl bg-purple-950/40 hover:bg-purple-900/50 border border-purple-500/30 hover:border-purple-400/60 text-purple-200 hover:text-white font-heading font-semibold text-sm sm:text-base flex items-center justify-center gap-2 backdrop-blur-xl transition-all hover:shadow-neon-purple"
+              className="w-full sm:w-auto px-7 sm:px-9 py-4 sm:py-4.5 rounded-2xl bg-purple-950/40 hover:bg-purple-900/50 border border-purple-500/30 hover:border-purple-400/60 text-purple-200 hover:text-white font-heading font-bold text-base sm:text-lg flex items-center justify-center gap-2 backdrop-blur-xl transition-all hover:shadow-neon-purple hover:scale-105"
             >
               <span>Explore Features</span>
             </a>
@@ -139,40 +199,40 @@ export default function Hero() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-7 sm:px-8 py-4 sm:py-4.5 rounded-2xl bg-[#140b2e]/90 hover:bg-[#1f1146] border border-purple-400/40 text-purple-200 hover:text-white font-heading font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-neon-purple"
+              className="w-full sm:w-auto px-7 sm:px-9 py-4 sm:py-4.5 rounded-2xl bg-[#140b2e]/90 hover:bg-[#1f1146] border border-purple-400/40 text-purple-200 hover:text-white font-heading font-extrabold text-base sm:text-lg flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-neon-purple hover:scale-105"
             >
-              <Sparkles className="w-4 h-4 text-purple-400" />
+              <Sparkles className="w-5 h-5 text-purple-400" />
               <span>Try Live App Demo</span>
               <ExternalLink className="w-4 h-4 text-purple-400" />
             </a>
           </div>
 
           {/* Quick Value Metrics */}
-          <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-6 sm:gap-x-10 text-xs sm:text-sm font-mono text-slate-300 font-medium pb-4 border-b border-purple-500/15 max-w-2xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-y-2 gap-x-6 sm:gap-x-10 text-xs sm:text-sm font-mono text-slate-300 font-bold pb-4 border-b border-purple-500/15 max-w-2xl mx-auto">
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
               <span>Sub-20ms WebSocket Latency</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+              <span className="w-2 h-2 rounded-full bg-purple-400"></span>
               <span>100% Real-Time Sync</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
               <span>No Password Friction</span>
             </div>
           </div>
 
         </div>
 
-        {/* Realistic PulseChat Application Preview (Hero Interactive Mockup) */}
-        <div className="mt-12 sm:mt-16 relative max-w-5xl mx-auto">
+        {/* 3D Realistic PulseChat Application Preview */}
+        <div className="mt-12 sm:mt-18 relative max-w-5xl mx-auto perspective-1000">
           
           {/* Ambient Glow Aura */}
-          <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600/40 via-fuchsia-600/30 to-indigo-600/40 rounded-3xl blur-2xl opacity-60 animate-pulse-slow"></div>
+          <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/40 via-fuchsia-600/30 to-indigo-600/40 rounded-3xl blur-3xl opacity-70 animate-pulse-slow"></div>
 
-          {/* Main Application Window */}
-          <div className="relative rounded-2xl sm:rounded-3xl bg-[#090514]/95 border border-purple-500/30 shadow-2xl backdrop-blur-2xl overflow-hidden hover:border-purple-400/50 transition-colors">
+          {/* Main 3D Tilted Application Window */}
+          <div className="relative rounded-2xl sm:rounded-3xl bg-[#090514]/95 border border-purple-500/35 shadow-2xl backdrop-blur-2xl overflow-hidden hero-3d-card">
             
             {/* App Topbar Header */}
             <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-purple-500/20 bg-[#060310]">
@@ -185,22 +245,22 @@ export default function Hero() {
                 <div className="h-4 w-[1px] bg-purple-500/20 mx-1 sm:mx-2"></div>
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping-slow"></span>
-                  <span className="text-[11px] sm:text-xs font-mono font-medium text-slate-300 hidden xs:inline">
+                  <span className="text-[11px] sm:text-xs font-mono font-bold text-slate-200 hidden xs:inline">
                     PulseChat v2.4 • Live WebSocket Cluster
                   </span>
-                  <span className="text-[11px] font-mono text-slate-300 xs:hidden">
+                  <span className="text-[11px] font-mono text-slate-200 xs:hidden">
                     PulseChat Live
                   </span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 sm:gap-3">
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/30 text-[10px] sm:text-[11px] font-mono text-purple-300">
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/30 text-[10px] sm:text-[11px] font-mono font-bold text-purple-300">
                   <Activity className="w-3 h-3 text-emerald-400" />
                   <span className="hidden sm:inline">0-REFRESH PIPELINE</span>
                   <span className="sm:hidden">SYNCED</span>
                 </div>
-                <span className="text-[11px] font-mono text-emerald-400 hidden md:inline">✓✓ Live Receipts Active</span>
+                <span className="text-[11px] font-mono text-emerald-400 hidden md:inline font-bold">✓✓ Live Receipts Active</span>
               </div>
             </div>
 
@@ -223,7 +283,7 @@ export default function Hero() {
 
                 {/* Conversation List */}
                 <div className="space-y-1.5">
-                  <div className="px-2 text-[10px] font-mono uppercase tracking-wider text-purple-400/80 font-bold">
+                  <div className="px-2 text-[10px] font-mono uppercase tracking-wider text-purple-400 font-bold">
                     Active Conversations
                   </div>
 
@@ -310,7 +370,7 @@ export default function Hero() {
                 <div className="p-2.5 rounded-xl bg-[#140b2c] border border-purple-500/20 flex items-center justify-between text-[11px] text-slate-300">
                   <div className="flex items-center gap-1.5">
                     <Bell className="w-3.5 h-3.5 text-purple-400" />
-                    <span className="font-heading">Unread:</span>
+                    <span className="font-heading font-bold">Unread:</span>
                   </div>
                   <span className="font-bold text-purple-300 font-mono">4 New Messages</span>
                 </div>
@@ -332,7 +392,7 @@ export default function Hero() {
                     <div>
                       <div className="flex items-center gap-2">
                         <h4 className="text-xs sm:text-sm font-heading font-bold text-white">Alex Morgan</h4>
-                        <span className="text-[10px] font-mono px-2 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="text-[10px] font-mono px-2 py-0.2 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
                           Online
                         </span>
                       </div>
@@ -360,7 +420,7 @@ export default function Hero() {
                     <div className="absolute inset-0 flex items-center">
                       <div className="w-full border-t border-purple-500/20"></div>
                     </div>
-                    <div className="relative px-3.5 py-0.5 rounded-full bg-[#160d33] border border-purple-500/30 text-[10px] font-mono text-purple-300 font-semibold">
+                    <div className="relative px-3.5 py-0.5 rounded-full bg-[#160d33] border border-purple-500/30 text-[10px] font-mono text-purple-300 font-bold">
                       Unread Messages • Today
                     </div>
                   </div>
@@ -375,7 +435,7 @@ export default function Hero() {
                         <span className="font-heading font-bold text-purple-200">Alex Morgan</span>
                         <span className="text-slate-400 font-mono">07:14 AM</span>
                       </div>
-                      <div className="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-[#180f33] border border-purple-500/25 text-xs sm:text-sm text-slate-100 shadow-sm leading-relaxed">
+                      <div className="p-3 sm:p-3.5 rounded-2xl rounded-tl-none bg-[#180f33] border border-purple-500/25 text-xs sm:text-sm text-slate-100 shadow-sm leading-relaxed font-body">
                         Are we meeting today for the product release review? 🚀
                       </div>
                     </div>
@@ -402,7 +462,7 @@ export default function Hero() {
                         </div>
 
                         {/* Main Message Text */}
-                        <p className="text-xs sm:text-sm leading-relaxed">
+                        <p className="font-body text-xs sm:text-sm leading-relaxed">
                           Yes! Everything is synced with persistent WebSockets. Launching live now! 🎉
                         </p>
 
