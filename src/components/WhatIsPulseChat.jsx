@@ -49,38 +49,38 @@ export default function WhatIsPulseChat() {
   ];
 
   return (
-    <section id="about" className="py-20 sm:py-28 relative overflow-hidden bg-[#05020d]">
+    <section id="about" className="py-16 sm:py-24 relative overflow-hidden bg-[#05020d]">
       
       {/* Background Decorative Glows */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-purple-700/10 rounded-full blur-[130px] pointer-events-none"></div>
-      <div className="absolute top-1/3 right-0 w-[450px] h-[450px] bg-indigo-700/10 rounded-full blur-[130px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-0 w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] bg-purple-700/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/3 right-0 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-indigo-700/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-[94rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Trendy Typography */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold mb-4 shadow-neon-purple">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold mb-3 shadow-neon-purple">
             <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
             <span>WHAT IS PULSECHAT?</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-5 leading-tight">
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4 leading-tight">
             Everything You Need to <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-300">
               Stay Connected
             </span>
           </h2>
 
-          <p className="font-body text-base sm:text-lg md:text-xl text-slate-300/90 leading-relaxed max-w-3xl mx-auto font-normal">
+          <p className="font-body text-xs sm:text-sm md:text-base text-slate-300/90 leading-relaxed max-w-xl mx-auto font-normal px-2">
             PulseChat brings private messaging, group conversations, real-time notifications, message reactions, replies, search, and read receipts into one seamless communication experience.
           </p>
         </div>
 
-        {/* 2-Column Showcase: Interactive Highlights + App Mockup */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* 2-Column Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           
           {/* Left Column: 3 Highlights (5 cols) */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
+          <div className="lg:col-span-5 space-y-3 sm:space-y-4">
             {highlights.map((hl) => {
               const Icon = hl.icon;
               const isSelected = activeHighlight === hl.id;
@@ -88,29 +88,29 @@ export default function WhatIsPulseChat() {
                 <div
                   key={hl.id}
                   onClick={() => setActiveHighlight(hl.id)}
-                  className={`p-5 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 cursor-pointer ${
+                  className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#12092a] border-purple-400/50 shadow-neon-purple scale-[1.02]'
+                      ? 'bg-[#12092a] border-purple-400/50 shadow-neon-purple scale-[1.01]'
                       : 'bg-[#0c071d]/80 border-purple-500/20 hover:bg-[#12092a]/60 hover:border-purple-500/35'
                   }`}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${hl.color} p-[1px] shadow-sm flex-shrink-0`}>
-                      <div className="w-full h-full bg-[#0c071d] rounded-[15px] flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-white" />
+                  <div className="flex items-start gap-3.5">
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${hl.color} p-[1px] shadow-sm flex-shrink-0`}>
+                      <div className="w-full h-full bg-[#0c071d] rounded-[11px] flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-white" />
                       </div>
                     </div>
 
-                    <div className="space-y-1 flex-1">
+                    <div className="space-y-0.5 flex-1">
                       <div className="flex items-center justify-between">
-                        <h3 className="font-heading text-lg sm:text-xl font-bold text-white">
+                        <h3 className="font-heading text-base sm:text-lg font-bold text-white">
                           {hl.title}
                         </h3>
-                        <span className={`text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full border ${hl.badgeColor}`}>
+                        <span className={`text-[9px] font-mono font-semibold px-2 py-0.2 rounded-full border ${hl.badgeColor}`}>
                           {hl.tag}
                         </span>
                       </div>
-                      <p className="font-body text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      <p className="font-body text-xs text-slate-300 leading-relaxed">
                         {hl.description}
                       </p>
                     </div>
@@ -119,13 +119,13 @@ export default function WhatIsPulseChat() {
               );
             })}
 
-            {/* Experience PulseChat in Seconds - Navigates directly to Demo */}
-            <div className="pt-2">
+            {/* Experience PulseChat in Seconds */}
+            <div className="pt-1">
               <a
                 href={DEMO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-indigo-600 text-white font-heading font-bold text-sm sm:text-base shadow-neon-purple hover:scale-[1.02] active:scale-98 transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 px-5 rounded-xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-indigo-600 text-white font-heading font-bold text-xs sm:text-sm shadow-neon-purple hover:scale-[1.02] active:scale-98 transition-all flex items-center justify-center gap-2"
               >
                 <span>Experience PulseChat in Seconds</span>
                 <ArrowRight className="w-4 h-4" />
@@ -133,108 +133,108 @@ export default function WhatIsPulseChat() {
             </div>
           </div>
 
-          {/* Right Column: Large Realistic Mockup (7 cols) */}
+          {/* Right Column: App Mockup (7 cols) */}
           <div className="lg:col-span-7 relative">
             
             {/* Ambient Backlight Glow */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/30 via-fuchsia-600/20 to-indigo-600/30 rounded-3xl blur-2xl opacity-75"></div>
+            <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600/30 via-fuchsia-600/20 to-indigo-600/30 rounded-2xl blur-xl opacity-75"></div>
 
             {/* Mockup Card */}
             <div className="relative rounded-2xl sm:rounded-3xl bg-[#0a0518] border border-purple-500/30 shadow-2xl overflow-hidden backdrop-blur-xl hover:border-purple-400/40 transition-colors">
               
               {/* Mockup Header */}
-              <div className="px-5 py-3.5 bg-[#070312] border-b border-purple-500/20 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+              <div className="px-4 py-2.5 bg-[#070312] border-b border-purple-500/20 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1">
+                    <span className="w-2 h-2 rounded-full bg-red-500/80"></span>
+                    <span className="w-2 h-2 rounded-full bg-yellow-500/80"></span>
+                    <span className="w-2 h-2 rounded-full bg-green-500/80"></span>
                   </div>
-                  <span className="text-xs font-mono font-semibold text-purple-300 ml-2">
-                    PulseChat • Multi-Channel Real-Time Hub
+                  <span className="text-[11px] font-mono font-semibold text-purple-300 ml-1.5 truncate">
+                    PulseChat • Multi-Channel Hub
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span className="text-[11px] font-mono text-emerald-400 hidden sm:inline">Connected</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span className="text-[10px] font-mono text-emerald-400 hidden sm:inline">Connected</span>
                 </div>
               </div>
 
               {/* Mockup Body Preview */}
-              <div className="p-5 sm:p-7 space-y-4 bg-gradient-to-b from-[#0f0826]/70 via-[#0a0518] to-[#060310]">
+              <div className="p-4 sm:p-5 space-y-3 bg-gradient-to-b from-[#0f0826]/70 via-[#0a0518] to-[#060310]">
                 
-                {/* Feature Pills Banner inside mockup */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pb-2">
-                  <div className="p-2.5 rounded-xl bg-[#140b2e] border border-purple-500/20 text-center hover:border-purple-400/40 transition-colors">
-                    <Zap className="w-4 h-4 text-purple-400 mx-auto mb-1" />
+                {/* Feature Pills */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pb-1">
+                  <div className="p-2 rounded-lg bg-[#140b2e] border border-purple-500/20 text-center">
+                    <Zap className="w-3.5 h-3.5 text-purple-400 mx-auto mb-0.5" />
                     <p className="font-heading text-[10px] font-bold text-white">Instant Delivery</p>
-                    <p className="text-[9px] text-purple-300/70 font-mono">0ms Lag</p>
+                    <p className="text-[8px] text-purple-300/70 font-mono">0ms Lag</p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-[#140b2e] border border-purple-500/20 text-center hover:border-cyan-400/40 transition-colors">
-                    <CheckCheck className="w-4 h-4 text-cyan-400 mx-auto mb-1" />
+                  <div className="p-2 rounded-lg bg-[#140b2e] border border-purple-500/20 text-center">
+                    <CheckCheck className="w-3.5 h-3.5 text-cyan-400 mx-auto mb-0.5" />
                     <p className="font-heading text-[10px] font-bold text-white">Read Receipts</p>
-                    <p className="text-[9px] text-cyan-300/70 font-mono">✓✓ Live Seen</p>
+                    <p className="text-[8px] text-cyan-300/70 font-mono">✓✓ Live Seen</p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-[#140b2e] border border-purple-500/20 text-center hover:border-yellow-400/40 transition-colors">
-                    <Smile className="w-4 h-4 text-yellow-400 mx-auto mb-1" />
+                  <div className="p-2 rounded-lg bg-[#140b2e] border border-purple-500/20 text-center">
+                    <Smile className="w-3.5 h-3.5 text-yellow-400 mx-auto mb-0.5" />
                     <p className="font-heading text-[10px] font-bold text-white">Emoji Reactions</p>
-                    <p className="text-[9px] text-yellow-300/70 font-mono">8 Expressive</p>
+                    <p className="text-[8px] text-yellow-300/70 font-mono">8 Expressive</p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-[#140b2e] border border-purple-500/20 text-center hover:border-fuchsia-400/40 transition-colors">
-                    <Users className="w-4 h-4 text-fuchsia-400 mx-auto mb-1" />
+                  <div className="p-2 rounded-lg bg-[#140b2e] border border-purple-500/20 text-center">
+                    <Users className="w-3.5 h-3.5 text-fuchsia-400 mx-auto mb-0.5" />
                     <p className="font-heading text-[10px] font-bold text-white">Group Admin</p>
-                    <p className="text-[9px] text-fuchsia-300/70 font-mono">Full Roles</p>
+                    <p className="text-[8px] text-fuchsia-300/70 font-mono">Full Roles</p>
                   </div>
                 </div>
 
-                {/* Simulated Conversation Feed with Replies & Status */}
-                <div className="space-y-3.5 pt-2">
+                {/* Conversation Feed */}
+                <div className="space-y-2.5 pt-1">
                   
                   {/* Message A */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xs shadow-sm flex-shrink-0 font-heading">
+                  <div className="flex items-start gap-2 max-w-[90%]">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-white font-bold text-[10px] shadow-sm flex-shrink-0 font-heading">
                       ML
                     </div>
-                    <div className="space-y-1 max-w-[85%]">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-heading font-bold text-purple-200">Maya Lin</span>
-                        <span className="text-[10px] font-mono text-slate-400">07:18 AM</span>
+                    <div className="space-y-0.5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[11px] font-heading font-bold text-purple-200">Maya Lin</span>
+                        <span className="text-[9px] font-mono text-slate-400">07:18 AM</span>
                       </div>
-                      <div className="p-3.5 rounded-2xl rounded-tl-none bg-[#160d33] border border-purple-500/20 text-xs sm:text-sm text-slate-100 shadow-sm leading-relaxed">
-                        Everything updates in real time — no need to refresh the page to see reactions or read receipts! 💬
+                      <div className="p-2.5 rounded-xl rounded-tl-none bg-[#160d33] border border-purple-500/20 text-xs text-slate-100 shadow-sm leading-relaxed">
+                        Everything updates in real time — no need to refresh to see reactions or read receipts! 💬
                       </div>
                     </div>
                   </div>
 
                   {/* Message B */}
-                  <div className="flex items-start justify-end gap-3 ml-auto max-w-[90%]">
-                    <div className="space-y-1 text-right w-full">
-                      <div className="flex items-center justify-end gap-2">
-                        <span className="text-[10px] font-mono text-slate-400">07:19 AM</span>
-                        <span className="text-xs font-heading font-bold text-purple-300">You</span>
+                  <div className="flex items-start justify-end gap-2 ml-auto max-w-[95%]">
+                    <div className="space-y-0.5 text-right w-full">
+                      <div className="flex items-center justify-end gap-1.5">
+                        <span className="text-[9px] font-mono text-slate-400">07:19 AM</span>
+                        <span className="text-[11px] font-heading font-bold text-purple-300">You</span>
                       </div>
-                      <div className="p-3.5 rounded-2xl rounded-tr-none bg-gradient-to-r from-purple-700 to-indigo-600 text-white text-xs sm:text-sm shadow-neon-purple text-left">
-                        And group governance lets us assign co-admins and search directory users in one click. 🛡️
-                        <div className="flex items-center justify-end gap-1.5 mt-2 text-[10px] font-mono text-cyan-300 font-bold">
+                      <div className="p-2.5 rounded-xl rounded-tr-none bg-gradient-to-r from-purple-700 to-indigo-600 text-white text-xs shadow-neon-purple text-left">
+                        And group governance lets us assign co-admins and search directory in one click. 🛡️
+                        <div className="flex items-center justify-end gap-1 mt-1 text-[9px] font-mono text-cyan-300 font-bold">
                           <span>Seen</span>
-                          <CheckCheck className="w-3.5 h-3.5 text-cyan-300" />
+                          <CheckCheck className="w-3 h-3 text-cyan-300" />
                         </div>
                       </div>
                     </div>
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xs shadow-sm flex-shrink-0 font-heading">
+                    <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-[10px] shadow-sm flex-shrink-0 font-heading">
                       ME
                     </div>
                   </div>
 
                 </div>
 
-                {/* Footer Telemetry Strip */}
-                <div className="pt-3 border-t border-purple-500/20 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <Lock className="w-3.5 h-3.5 text-purple-400" />
+                {/* Footer Telemetry */}
+                <div className="pt-2 border-t border-purple-500/20 flex flex-wrap items-center justify-between text-[10px] font-mono text-slate-400">
+                  <div className="flex items-center gap-1.5">
+                    <Lock className="w-3 h-3 text-purple-400" />
                     <span>JWT Encrypted Sessions</span>
                   </div>
-                  <span className="text-purple-300">Continuous Bi-Directional Stream</span>
+                  <span className="text-purple-300">Continuous WebSocket Stream</span>
                 </div>
 
               </div>

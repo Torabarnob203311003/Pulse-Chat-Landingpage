@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Zap, 
-  MessageSquare, 
   Users, 
-  CheckCheck, 
+  MessageSquare, 
   Smile, 
+  CheckCheck, 
+  Clock, 
   CornerDownRight, 
-  Search, 
   Bell, 
-  RefreshCw, 
-  Inbox, 
+  Search, 
+  ArrowDown, 
+  Trash2, 
   ShieldCheck, 
-  Lock,
   Sparkles,
   ArrowRight,
   ExternalLink
@@ -19,190 +19,204 @@ import {
 
 export default function BentoFeatures() {
   const DEMO_URL = 'https://chat-app-eta-black-25.vercel.app/';
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  const featureList = [
+  const features = [
     {
+      id: 1,
       icon: Zap,
       title: 'Real-Time Messaging',
-      tag: 'SUB-20MS SPEED',
-      description: 'Instant message delivery with zero lag and optimistic UI synchronization.',
-      color: 'from-purple-500 to-indigo-500',
-      badge: 'WebSockets'
+      subtitle: 'Bi-directional WebSocket streaming',
+      description: 'Messages arrive instantly without page refreshes, manual reloads, or delayed polling intervals.',
+      tag: 'SUB-20MS',
+      accent: 'purple'
     },
     {
+      id: 2,
       icon: MessageSquare,
-      title: 'Private Chat',
-      tag: '1-ON-1 DIRECT',
-      description: 'Encrypted private communication channels with instant online presence.',
-      color: 'from-fuchsia-500 to-purple-600',
-      badge: 'Direct'
+      title: 'Private 1-on-1 Chats',
+      subtitle: 'Secure direct messaging',
+      description: 'Find any registered user and start private one-on-one conversations with full delivery feedback.',
+      tag: 'DIRECT',
+      accent: 'indigo'
     },
     {
+      id: 3,
       icon: Users,
-      title: 'Group Chat',
-      tag: 'TEAM CHANNELS',
-      description: 'Collaborate with unlimited participants and live member activity streams.',
-      color: 'from-indigo-500 to-cyan-500',
-      badge: 'Multi-User'
+      title: 'Group Conversations',
+      subtitle: 'Multi-member channels',
+      description: 'Create multi-user groups with custom names, live member lists, and synchronized channels.',
+      tag: 'GROUPS',
+      accent: 'fuchsia'
     },
     {
-      icon: CheckCheck,
-      title: 'Read Receipts',
-      tag: 'SEEN STATUS',
-      description: 'Clear visual status transitions from sending ⏳, sent ✓, delivered ✓✓, to seen ✓✓.',
-      color: 'from-cyan-500 to-blue-500',
-      badge: '✓✓ Live'
+      id: 4,
+      icon: ShieldCheck,
+      title: 'Group Management & Admin',
+      subtitle: 'Granular channel governance',
+      description: 'Add members, remove members, rename channels, and promote co-admins in real time.',
+      tag: 'ROLES',
+      accent: 'cyan'
     },
     {
+      id: 5,
       icon: Smile,
-      title: 'Emoji Reactions',
-      tag: '8 EXPRESSIONS',
-      description: 'React instantly with 👍, ❤️, 😂, 🔥, 🎉, 🚀, 👏, and 👀 with synchronized counters.',
-      color: 'from-yellow-500 to-amber-500',
-      badge: 'Interactive'
+      title: 'Emoji Message Reactions',
+      subtitle: '8 Expressive reactions',
+      description: 'Express consensus with synchronized emojis (👍, ❤️, 😂, 🔥, 🎉, 🚀, 👏, 👀) with live counters.',
+      tag: 'REACTIONS',
+      accent: 'yellow'
     },
     {
+      id: 6,
       icon: CornerDownRight,
-      title: 'Quoted Replies',
-      tag: 'THREAD CONTEXT',
-      description: 'Quote specific messages directly to keep discussions organized and clear.',
-      color: 'from-purple-400 to-fuchsia-500',
-      badge: 'Contextual'
+      title: 'Message Replies',
+      subtitle: 'Quoted context threading',
+      description: 'Reply to specific prior messages with visual quote preview cards so conversations stay structured.',
+      tag: 'THREADING',
+      accent: 'purple'
     },
     {
+      id: 7,
+      icon: CheckCheck,
+      title: 'Read Receipts & Statuses',
+      subtitle: 'Sent → Delivered → Seen',
+      description: 'Full lifecycle visibility with double checks: purple for sent, silver for delivered, and cyan for seen.',
+      tag: 'RECEIPTS',
+      accent: 'emerald'
+    },
+    {
+      id: 8,
+      icon: Bell,
+      title: 'Real-Time Notifications',
+      subtitle: 'Live UI toast stream',
+      description: 'Instant toasts for new messages, emoji reactions, group invitations, and member updates.',
+      tag: 'NOTIFICATIONS',
+      accent: 'fuchsia'
+    },
+    {
+      id: 9,
       icon: Search,
       title: 'Message Search',
-      tag: 'INSTANT QUERY',
-      description: 'Search conversations by keyword and highlight matching messages in real time.',
-      color: 'from-pink-500 to-purple-600',
-      badge: 'Fast Lookup'
+      subtitle: 'Instant regex query',
+      description: 'Search messages across active conversation history with immediate keyword highlighting.',
+      tag: 'SEARCH',
+      accent: 'indigo'
     },
     {
-      icon: Bell,
-      title: 'Live Notifications',
-      tag: 'REAL-TIME ALERTS',
-      description: 'Receive instant toast alerts for new messages, reactions, and group updates.',
-      color: 'from-violet-500 to-indigo-600',
-      badge: '0-Refresh'
+      id: 10,
+      icon: ArrowDown,
+      title: 'Smart Scroll Management',
+      subtitle: 'Viewport anchoring',
+      description: 'Non-intrusive message scrolling with floating "↓ New messages" indicators when reading history.',
+      tag: 'UX POLISH',
+      accent: 'purple'
     },
     {
-      icon: RefreshCw,
-      title: 'Cross-Tab Sync',
-      tag: 'MULTI-CLIENT',
-      description: 'Keep multiple browser windows, tabs, and devices completely synchronized.',
-      color: 'from-indigo-400 to-purple-500',
-      badge: 'Persistent'
+      id: 11,
+      icon: Trash2,
+      title: 'Message Deletion',
+      subtitle: 'Synchronized retraction',
+      description: 'Delete your own messages with synchronized updates across all connected participants.',
+      tag: 'PRIVACY',
+      accent: 'red'
     },
     {
-      icon: Inbox,
-      title: 'Unread Tracking',
-      tag: 'SMART BADGES',
-      description: 'Distinct unread message dividers and count badges keep your place secure.',
-      color: 'from-purple-600 to-indigo-700',
-      badge: 'Non-Jerk'
-    },
-    {
+      id: 12,
       icon: ShieldCheck,
-      title: 'Group Administration',
+      title: 'Removed-Member Protection',
+      subtitle: 'Read-only archived mode',
+      description: 'Past history remains viewable in read-only mode if removed from groups without permission leaks.',
       tag: 'GOVERNANCE',
-      description: 'Promote co-admins, manage members, rename groups, and broadcast system logs.',
-      color: 'from-emerald-500 to-teal-500',
-      badge: 'Roles'
-    },
-    {
-      icon: Lock,
-      title: 'Privacy Controls',
-      tag: 'SAFE MESSAGING',
-      description: 'Delete individual messages and protect conversation history with read-only guards.',
-      color: 'from-rose-500 to-purple-600',
-      badge: 'Encrypted'
-    },
+      accent: 'amber'
+    }
   ];
 
   return (
-    <section id="features" className="py-20 sm:py-28 relative overflow-hidden bg-[#05020c]">
+    <section id="features" className="py-16 sm:py-24 relative overflow-hidden bg-[#05020d]">
       
-      {/* Background Decorative Lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[850px] h-[350px] sm:h-[550px] bg-purple-900/10 rounded-full blur-[150px] pointer-events-none"></div>
+      {/* Background Ambience */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] sm:w-[650px] h-[300px] sm:h-[450px] bg-purple-950/20 rounded-full blur-[130px] pointer-events-none"></div>
 
-      <div className="max-w-[94rem] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header with Trendy Typography */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold mb-4 shadow-neon-purple">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-purple-300 text-xs font-mono font-semibold mb-3 shadow-neon-purple">
             <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-            <span>12 POWERFUL CAPABILITIES</span>
+            <span>FEATURE BREAKDOWN</span>
           </div>
 
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4 leading-tight">
-            Engineered for Velocity. <br className="hidden sm:inline" />
+          <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 sm:mb-4 leading-tight">
+            12 Essential Features <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-300">
-              Built for Deep Connection.
+              Built for Modern Chat
             </span>
           </h2>
 
-          <p className="font-body text-base sm:text-lg md:text-xl text-slate-300/90 leading-relaxed max-w-2xl mx-auto font-normal">
-            Every feature in PulseChat is designed to remove communication barriers and provide a smooth, dependable real-time messaging experience.
+          <p className="font-body text-xs sm:text-sm md:text-base text-slate-300/90 leading-relaxed max-w-xl mx-auto font-normal px-2">
+            Every feature is engineered to make real-time conversations frictionless, reliable, and deeply intuitive.
           </p>
         </div>
 
-        {/* 12-Card Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {featureList.map((feature, idx) => {
-            const Icon = feature.icon;
+        {/* 12 Bento Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
+          {features.map((item) => {
+            const Icon = item.icon;
+            const isHovered = hoveredCard === item.id;
             return (
               <div
-                key={idx}
-                className="p-6 rounded-2xl sm:rounded-3xl bg-[#0c071e]/85 border border-purple-500/20 backdrop-blur-xl hover:border-purple-400/50 transition-all duration-300 hover:shadow-neon-purple flex flex-col justify-between group hover:-translate-y-1.5"
+                key={item.id}
+                onMouseEnter={() => setHoveredCard(item.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between group ${
+                  isHovered
+                    ? 'bg-[#12092c] border-purple-400/60 shadow-neon-purple -translate-y-1'
+                    : 'bg-[#0b0618]/90 border-purple-500/20 hover:border-purple-500/40 hover:bg-[#100725]'
+                }`}
               >
                 <div>
-                  {/* Top Bar: Icon + Badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${feature.color} p-[1px] shadow-sm group-hover:scale-105 transition-transform`}>
-                      <div className="w-full h-full bg-[#0c071e] rounded-[15px] flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-white" />
-                      </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-8 h-8 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover:bg-purple-600/30 group-hover:border-purple-400/60 transition-colors">
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-purple-950/60 text-purple-300 border border-purple-500/30">
-                      {feature.badge}
+                    <span className="text-[9px] font-mono font-bold px-2 py-0.2 rounded-full bg-purple-950/70 text-purple-300 border border-purple-500/30">
+                      {item.tag}
                     </span>
                   </div>
 
-                  {/* Title & Tag */}
-                  <div className="mb-2">
-                    <span className="text-[10px] font-mono text-purple-400 font-bold tracking-wider uppercase block mb-1">
-                      {feature.tag}
-                    </span>
-                    <h3 className="font-heading text-base sm:text-lg font-bold text-white group-hover:text-purple-200 transition-colors">
-                      {feature.title}
-                    </h3>
-                  </div>
+                  <h3 className="font-heading text-sm sm:text-base font-bold text-white mb-1 group-hover:text-purple-200 transition-colors">
+                    {item.title}
+                  </h3>
 
-                  {/* Description */}
-                  <p className="font-body text-xs sm:text-sm text-slate-300 leading-relaxed">
-                    {feature.description}
+                  <p className="font-heading text-[11px] text-purple-300/80 mb-2 font-medium">
+                    {item.subtitle}
+                  </p>
+
+                  <p className="font-body text-xs text-slate-300/80 leading-relaxed font-normal">
+                    {item.description}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-purple-500/10 flex items-center justify-between text-[11px] font-mono text-purple-300/70 group-hover:text-purple-300">
-                  <span>Instant WebSocket Sync</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                <div className="pt-3 mt-3 border-t border-purple-500/15 flex items-center justify-between text-[10px] font-mono text-purple-300/60 group-hover:text-purple-300 transition-colors">
+                  <span>PulseChat Core</span>
+                  <span>Active ✓</span>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom Action Prompt - "Explore all 12 features live" Navigates directly to Demo */}
-        <div className="mt-12 sm:mt-16 text-center">
+        {/* Explore all 12 features live */}
+        <div className="text-center pt-2">
           <a
             href={DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-8 sm:px-10 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-indigo-600 text-white font-heading font-bold shadow-neon-purple hover:scale-105 active:scale-95 transition-all text-sm sm:text-base"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-indigo-600 text-white font-heading font-bold text-xs sm:text-sm shadow-neon-purple hover:scale-105 active:scale-98 transition-all"
           >
             <span>Explore all 12 features live</span>
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
 
