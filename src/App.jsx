@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import LiveChatSandbox from './components/LiveChatSandbox';
-import BentoFeatures from './components/BentoFeatures';
+import WhatIsPulseChat from './components/WhatIsPulseChat';
 import HowItWorks from './components/HowItWorks';
+import BentoFeatures from './components/BentoFeatures';
+import ProductShowcases from './components/ProductShowcases';
 import SpeedComparison from './components/SpeedComparison';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
-import LaunchModal from './components/LaunchModal';
 
 export default function App() {
-  const [isLaunchModalOpen, setIsLaunchModalOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // Subtle interactive cursor spotlight glow effect
+  // Interactive cursor spotlight glow effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -22,23 +21,12 @@ export default function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handleLaunchClick = () => {
-    setIsLaunchModalOpen(true);
-  };
-
-  const handleDemoClick = () => {
-    const demoEl = document.getElementById('demo');
-    if (demoEl) {
-      demoEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#04020a] text-white selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
       
       {/* Interactive Cursor Spotlight Glow */}
       <div 
-        className="fixed pointer-events-none z-30 transition-opacity duration-500 opacity-60 w-[500px] h-[500px] rounded-full blur-[120px] bg-purple-600/10 -translate-x-1/2 -translate-y-1/2 hidden md:block"
+        className="fixed pointer-events-none z-30 transition-opacity duration-500 opacity-50 w-[450px] sm:w-[650px] h-[450px] sm:h-[650px] rounded-full blur-[140px] bg-purple-600/10 -translate-x-1/2 -translate-y-1/2 hidden lg:block"
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
@@ -46,47 +34,34 @@ export default function App() {
       />
 
       {/* Navigation Header */}
-      <Navbar 
-        onLaunchClick={handleLaunchClick} 
-        onDemoClick={handleDemoClick} 
-      />
+      <Navbar />
 
-      {/* Hero Section */}
+      {/* Main Content Sections */}
       <main>
-        <Hero 
-          onLaunchClick={handleLaunchClick} 
-          onDemoClick={handleDemoClick} 
-        />
+        {/* 1. Redesigned Hero Section with Live Application Preview */}
+        <Hero />
 
-        {/* Signature Interactive Live Chat Sandbox */}
-        <LiveChatSandbox />
+        {/* 2. What Is PulseChat Section */}
+        <WhatIsPulseChat />
 
-        {/* Bento Grid Verified Features */}
+        {/* 3. How It Works 3-Step Flow */}
+        <HowItWorks />
+
+        {/* 4. 12 Premium Feature Cards */}
         <BentoFeatures />
 
-        {/* How It Works 3-Step Flow */}
-        <HowItWorks 
-          onLaunchClick={handleLaunchClick} 
-        />
+        {/* 5. Product Showcases (Real-Time Status, Reactions & Replies, Groups, Notifications, Smart UX, Privacy) */}
+        <ProductShowcases />
 
-        {/* Speed & Architecture Reality Check */}
+        {/* 6. Real-Time Architecture & Speed Comparison */}
         <SpeedComparison />
 
-        {/* High-Impact CTA Section */}
-        <CTASection 
-          onLaunchClick={handleLaunchClick} 
-          onDemoClick={handleDemoClick} 
-        />
+        {/* 7. High-Impact Final CTA Section */}
+        <CTASection />
       </main>
 
       {/* Footer */}
       <Footer />
-
-      {/* Launch / Login Simulation Modal */}
-      <LaunchModal 
-        isOpen={isLaunchModalOpen} 
-        onClose={() => setIsLaunchModalOpen(false)}
-      />
 
     </div>
   );
